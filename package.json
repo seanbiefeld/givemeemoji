@@ -1,0 +1,27 @@
+{
+  "name": "givemeemoji",
+  "version": "0.0.1",
+  "description": "get emoji over http",
+  "main": "web.js",
+  "dependencies": {
+    "express": "~4.3.0",
+    "logfmt": "~1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanbiefeld/givemeemoji.git"
+  },
+  "keywords": [
+    "emoji"
+  ],
+  "author": "Sean G. Biefeld",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanbiefeld/givemeemoji/issues"
+  },
+  "homepage": "https://github.com/seanbiefeld/givemeemoji"
+}
