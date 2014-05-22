@@ -1,9 +1,10 @@
-fs = require('fs');
-http = require('http');
-url = require('url');
+var express = require("express");
+var logfmt = require("logfmt");
+var app = express();
 
+app.use(logfmt.requestLogger());
 
-http.createServer(function(req, res){
+app.get('/', function(req, res) {
   var request = url.parse(req.url, true);
   var imageName = request.pathname;
 
@@ -18,4 +19,9 @@ http.createServer(function(req, res){
      res.writeHead(200, {'Content-Type': 'text/plain' });
      res.end('Exists not, image you requested. \n');
   }
-}).listen(process.env.PORT || 3000);
+});
+
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
