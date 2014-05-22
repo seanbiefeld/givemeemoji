@@ -16,6 +16,6 @@ http.createServer(function(req, res){
   catch(exception) { 
     console.log(exception);
      res.writeHead(200, {'Content-Type': 'text/plain' });
-     res.end('Exists not, image you requested. \n');
+     res.end('Exists not, image you request. \n');
   }
 }).listen(process.env.PORT || 5000);
