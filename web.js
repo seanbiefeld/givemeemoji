@@ -8,8 +8,12 @@ http.createServer(function(req, res){
   var imageName = request.pathname;
 
   try {
-    console.log('about to load ./images/emojis'+imageName+'.png');
-     var img = fs.readFileSync('./images/emojis'+imageName+'.png');
+    console.log('about to load ./images/emojis'+imageName);
+    if(!(imageName.indexOf('.png')> -1)){
+      imageName += '.png';
+    }
+
+     var img = fs.readFileSync('./images/emojis'+imageName);
      res.writeHead(200, {'Content-Type': 'image/png' });
      res.end(img, 'binary');
   }
