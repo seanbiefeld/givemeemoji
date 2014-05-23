@@ -19,7 +19,7 @@ http.createServer(function(req, res){
   }
   catch(exception) { 
     console.log(exception);
-     res.writeHead(200, {'Content-Type': 'text/plain' });
-     res.end('Exists not, image you request. \n');
+     res.writeHead(200, {'Content-Type': 'image/gif' });
+     res.end(fs.readFileSync('./images/emojis/doctornope.gif'), 'binary');
   }
 }).listen(process.env.PORT || 5000);
