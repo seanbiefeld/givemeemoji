@@ -9,13 +9,25 @@ http.createServer(function(req, res){
 
   try {
     console.log('about to load ./images/emojis'+imageName);
-    if(!(imageName.indexOf('.png')> -1)){
-      imageName += '.png';
+
+    if(request.pathname.indexOf('/help/') > -1){
+
+      var helpFile = fs.readFileSync('./images/emojis/list.txt');
+      res.writeHead(200, {'Content-Type': 'text/plain' });
+      res.end(helpFile, 'utf8');
+
+    } else {
+      
+      if(!(imageName.indexOf('.png')> -1)){
+        imageName += '.png';
+      }
+
+      var img = fs.readFileSync('./images/emojis'+imageName);
+      res.writeHead(200, {'Content-Type': 'image/png' });
+      res.end(img, 'binary');
     }
 
-     var img = fs.readFileSync('./images/emojis'+imageName);
-     res.writeHead(200, {'Content-Type': 'image/png' });
-     res.end(img, 'binary');
+    
   }
   catch(exception) { 
     console.log(exception);
