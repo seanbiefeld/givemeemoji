@@ -811,7 +811,7 @@
 :japanese_goblin:
 :japanese_ogre:
 :jar-jar-binks:
-:java-small:
+:java:
 :jawas:
 :jazz:
 :jeangrey:
