@@ -10,7 +10,7 @@ http.createServer(function(req, res){
   try {
     console.log('about to load ./images/emojis'+imageName);
 
-    if(request.pathname.indexOf('/help/') > -1){
+    if(request.pathname.indexOf('/help.txt') > -1){
 
       var helpFile = fs.readFileSync('./images/emojis/list.txt');
       res.writeHead(200, {'Content-Type': 'text/plain' });
