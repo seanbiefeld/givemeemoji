@@ -249,7 +249,6 @@
 :cat-cat-overload:
 :cat-gasp:
 :cat-glare:
-:cat-lol:
 :cat-meh-cat:
 :cat:
 :cat2:
@@ -461,7 +460,7 @@
 :dizzy:
 :dizzy_face:
 :do_not_litter:
-:doctornope.gif
+:doctornope.gif:
 :dog-wetodd:
 :dog:
 :dog2:
@@ -868,8 +867,6 @@
 :last_quarter_moon:
 :last_quarter_moon_with_face:
 :laughing-f-that:
-:laughing-lol-crazy-clean:
-:laughing-lol-crazy:
 :laughing:
 :le-fu:
 :le-monkey-face:
@@ -899,12 +896,15 @@
 :lips:
 :lipstick:
 :lisa:
-:list.txt
+:list.txt:
 :little-kid:
 :lock-nbc:
 :lock:
 :lock_with_ink_pen:
 :loki-01:
+:lol-cat:
+:lol-text:
+:lol:
 :lollipop:
 :long-neck-surprise:
 :loop:
@@ -1094,8 +1094,8 @@
 :numb:
 :nut_and_bolt:
 :nute-gunray:
-:nyancat.jpeg
-:nyantardis.gif
+:nyancat.jpeg:
+:nyantardis.gif:
 :o:
 :o2:
 :obama-clinton-not-bad:
@@ -1161,7 +1161,6 @@
 :outbox_tray:
 :ox:
 :p-p-p-pokerface:
-:pcmasterrace:
 :padme-amidala:
 :page_facing_up:
 :page_with_curl:
@@ -1177,6 +1176,7 @@
 :partly_sunny:
 :passport_control:
 :paw_prints:
+:pcmasterrace:
 :peach:
 :pear:
 :pencil:
@@ -1734,6 +1734,7 @@
 :waning_gibbous_moon:
 :war-machine-01:
 :warning:
+:wat:
 :watch:
 :water_buffalo:
 :watermelon:
