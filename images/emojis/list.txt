@@ -906,6 +906,7 @@
 :lol-text:
 :lol:
 :lollipop:
+:lolwut:
 :long-neck-surprise:
 :loop:
 :loudspeaker:
