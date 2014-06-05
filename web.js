@@ -10,11 +10,18 @@ http.createServer(function(req, res){
   try {
     console.log('about to load ./images/emojis'+imageName);
 
-    if(request.pathname.indexOf('/help.txt') > -1){
+    if(request.pathname.indexOf('/help/') > -1){
 
       var helpFile = fs.readFileSync('./images/emojis/list.txt');
-      res.writeHead(200, {'Content-Type': 'text/plain' });
-      res.end(helpFile, 'utf8');
+      var helpHtml = '';
+      fs.readdirSync('./images/emojis').forEach(function(element, index, array){
+
+          helpHtml += '<img src="../' + element + '" ></img><h3>' + element + '</h3>';
+
+      });
+
+      res.writeHead(200, {'Content-Type': 'text/html' });
+      res.end(helpHtml, 'utf8');
 
     } else {
       
