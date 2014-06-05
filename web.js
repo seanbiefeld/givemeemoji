@@ -10,15 +10,25 @@ http.createServer(function(req, res){
   try {
     console.log('about to load ./images/emojis'+imageName);
 
-    if(request.pathname.indexOf('/help/') > -1){
+    if(request.pathname.indexOf('help') > -1){
 
       var helpFile = fs.readFileSync('./images/emojis/list.txt');
-      var helpHtml = '';
+      var helpHtml = '<table>';
       fs.readdirSync('./images/emojis').forEach(function(element, index, array){
 
-          helpHtml += '<img src="../' + element + '" ></img><h3>' + element + '</h3>';
+          if(index === 0)
+            helpHtml += '<tr>'
 
+          helpHtml += '<td><p><img src="../' + element + '" ></img></p><p style="font-size: 10pt;">:' + element.replace('.png', '') + ':</p></td>';
+
+          if((index + 1) % 6 === 0 && index !== array.length - 1)
+            helpHtml += '</tr><tr>'
+
+          if(index === array.length - 1)
+            helpHtml += '</tr>'
       });
+
+      helpHtml = helpHtml + '</table>';
 
       res.writeHead(200, {'Content-Type': 'text/html' });
       res.end(helpHtml, 'utf8');
