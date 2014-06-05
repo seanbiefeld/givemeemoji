@@ -2,33 +2,50 @@ fs = require('fs');
 http = require('http');
 url = require('url');
 
+routes = {
+
+  stylesheets : function(urlParams){
+    return fs.readFileSync('./stylesheets/' + urlParams[urlParams.length - 1]);
+  }
+
+}
 
 http.createServer(function(req, res){
   var request = url.parse(req.url, true);
   var imageName = request.pathname;
+  var urlParams = request.split('/');
 
   try {
     console.log('about to load ./images/emojis'+imageName);
 
+    if(request.pathname.indexOf('stylesheets') > -1){
+
+      var css = routes['stylesheets'](urlParams);
+      res.writeHead(200, {'Content-Type': 'text/css' });
+      res.end(css, 'utf8');
+
+      return;
+    }
+
     if(request.pathname.indexOf('help') > -1){
 
       var helpFile = fs.readFileSync('./images/emojis/list.txt');
-      var helpHtml = '<table>';
+      var helpHtml = '<html><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="stylesheets/base.css"><link rel="stylesheet" href="../stylesheets/skeleton.css"><link rel="stylesheet" href="../stylesheets/layout.css"></head><body><div class="container">';
       fs.readdirSync('./images/emojis').forEach(function(element, index, array){
 
           if(index === 0)
-            helpHtml += '<tr>'
+            helpHtml += '<div class="one column">'
 
           helpHtml += '<td><p><img src="../' + element + '" ></img></p><p style="font-size: 10pt;">:' + element.replace('.png', '') + ':</p></td>';
 
           if((index + 1) % 6 === 0 && index !== array.length - 1)
-            helpHtml += '</tr><tr>'
+            helpHtml += '</div><div class="one column">'
 
           if(index === array.length - 1)
-            helpHtml += '</tr>'
+            helpHtml += '</div>'
       });
 
-      helpHtml = helpHtml + '</table>';
+      helpHtml = helpHtml + '</body></html>';
 
       res.writeHead(200, {'Content-Type': 'text/html' });
       res.end(helpHtml, 'utf8');
