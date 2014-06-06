@@ -29,7 +29,6 @@ http.createServer(function(req, res){
 
     if(request.pathname.indexOf('help') > -1){
 
-      var helpFile = fs.readFileSync('./images/emojis/list.txt');
       var helpHtml = '<html><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="stylesheets/base.css"><link rel="stylesheet" href="stylesheets/base.css"><link rel="stylesheet" href="../stylesheets/skeleton.css"><link rel="stylesheet" href="../stylesheets/layout.css"></head><body><div class="container"><div class="fifteen columns"><h1 class="remove-bottom" style="margin-top: 40px">Emojis</h1><hr /></div>';
       
       fs.readdirSync('./images/emojis').forEach(function(element, index, array){
