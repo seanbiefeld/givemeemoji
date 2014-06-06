@@ -16,7 +16,7 @@ http.createServer(function(req, res){
   var urlParams = request.pathname.split('/');
 
   try {
-    console.log('about to load ./images/emojis'+imageName);
+    console.log('resolving route: ' + request.pathname);
 
     if(request.pathname.indexOf('stylesheets') > -1){
 
@@ -52,7 +52,7 @@ http.createServer(function(req, res){
 
     } else {
       
-      if(!(imageName.indexOf('.png')> -1)){
+      if(!(imageName.indexOf('.png')> -1) && !(imageName.indexOf('.gif') > -1)){
         imageName += '.png';
       }
 
